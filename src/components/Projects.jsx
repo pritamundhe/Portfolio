@@ -10,10 +10,11 @@ const GithubIcon = ({ size = 20 }) => (
 
 const projectsData = [
   {
-    title: "Voice Assistant with OpenAI's GPT-3 and IBM Watson",
-    description: "Developed an AI voice assistant with speech recognition and conversational response generation using GPT-3 and IBM Watson APIs.",
-    tech: ["Python", "OpenAI GPT-3", "IBM Watson", "Flask"],
-    link: "#"
+    title: "Personal AI Voice Assistant",
+    description: "I have built a personal voice assistant who remembers my data tasks and speaks with me.",
+    tech: ["Flask", "pymongo", "python-dotenv", "elevenlabs", "requests", "gunicorn"],
+    link: "#",
+    previewUrl: "https://voiceassistant-08n5.onrender.com/"
   },
   {
     title: "Vision Access AI (Social Media Accessibility)",
