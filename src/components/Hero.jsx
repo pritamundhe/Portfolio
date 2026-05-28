@@ -49,10 +49,10 @@ const Hero = () => {
         >
           {/* Subtle glow effect */}
           <div className="absolute inset-0 bg-white/5 blur-[100px] rounded-full scale-110"></div>
-          <img 
-            src="/profile.png" 
-            alt="Pritam Mundhe" 
-            className="relative z-10 w-full max-w-[400px] md:max-w-[500px] lg:max-w-[600px] h-auto object-contain drop-shadow-2xl grayscale"
+          <img
+            src={`${import.meta.env.BASE_URL}profile.png`}
+            alt="Pritam Mundhe"
+            className="relative z-10 w-full max-w-[400px] md:max-w-[500px] lg:max-w-[600px]"
           />
         </motion.div>
 
