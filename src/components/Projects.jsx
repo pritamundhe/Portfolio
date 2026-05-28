@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
+import { X, Loader2 } from "lucide-react";
 
 const GithubIcon = ({ size = 20 }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -14,26 +16,32 @@ const projectsData = [
     link: "#"
   },
   {
-    title: "AI Social Media Accessibility Assistant",
+    title: "Vision Access AI (Social Media Accessibility)",
     description: "Developed an AI-based image captioning system with emotion detection, OCR, and multilingual caption generation for social media accessibility.",
     tech: ["Python", "Transformers", "BLIP", "Tesseract OCR", "FastAPI"],
-    link: "#"
+    link: "#",
+    previewUrl: "https://visionacessai.streamlit.app/?embed=true"
   },
   {
     title: "WhatsApp Chat Analysis System",
     description: "Built a chat analytics application to visualize user activity, word clouds, emoji usage, and sentiment insights from WhatsApp chats.",
     tech: ["Python", "Pandas", "Matplotlib", "Seaborn", "Streamlit"],
-    link: "#"
+    link: "#",
+    previewUrl: "https://whatsappchatreport.streamlit.app/?embed=true"
   },
   {
     title: "AI Smart Playlist Generator",
     description: "Developing an AI-powered music recommendation system based on user mood and listening patterns.",
     tech: ["Python", "Spotify API", "Scikit-learn", "FastAPI"],
-    link: "#"
+    link: "#",
+    previewUrl: "https://frontend-rose-eta-61.vercel.app/"
   }
 ];
 
 const Projects = () => {
+  const [previewUrl, setPreviewUrl] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <section id="projects" className="py-24 px-6 bg-[#050505] text-white">
       <div className="max-w-6xl mx-auto">
@@ -49,13 +57,19 @@ const Projects = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative border border-[#27272a] bg-[#0a0a0a] p-8 rounded-2xl hover:border-white transition-all duration-300"
+              onClick={() => {
+                if (project.previewUrl) {
+                  setPreviewUrl(project.previewUrl);
+                  setIsLoading(true);
+                }
+              }}
+              className={`group relative border border-[#27272a] bg-[#0a0a0a] p-8 rounded-2xl transition-all duration-300 ${project.previewUrl ? 'cursor-pointer hover:border-[#3b82f6]' : 'hover:border-white'}`}
             >
               <div className="flex justify-between items-start mb-6">
                 <h3 className="text-xl font-medium text-white group-hover:text-gray-200">
                   {project.title}
                 </h3>
-                <a href={project.link} target="_blank" rel="noreferrer" className="text-gray-500 hover:text-white transition-colors">
+                <a href={project.link} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()} className="text-gray-500 hover:text-white transition-colors">
                   <GithubIcon size={20} />
                 </a>
               </div>
@@ -73,6 +87,38 @@ const Projects = () => {
           ))}
         </div>
       </div>
+
+      {/* Modal Preview */}
+      {previewUrl && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 md:p-12">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="relative w-full max-w-5xl h-full bg-[#0a0a0a] rounded-2xl overflow-hidden shadow-2xl"
+          >
+            <button 
+              onClick={() => setPreviewUrl(null)}
+              className="absolute top-4 right-4 z-20 p-2 bg-black/50 hover:bg-black/80 text-white rounded-full transition-colors backdrop-blur-md"
+            >
+              <X size={24} />
+            </button>
+
+            {isLoading && (
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#0a0a0a] z-10 text-white">
+                <Loader2 className="w-10 h-10 animate-spin text-[#3b82f6] mb-4" />
+                <p className="text-sm text-gray-400 font-medium tracking-wide">Loading application...</p>
+              </div>
+            )}
+
+            <iframe 
+              src={previewUrl} 
+              className={`w-full h-full border-0 relative z-0 transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+              title="Project Preview"
+              onLoad={() => setIsLoading(false)}
+            />
+          </motion.div>
+        </div>
+      )}
     </section>
   );
 };

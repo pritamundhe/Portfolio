@@ -12,7 +12,7 @@ const Hero = () => {
           className="flex flex-col items-start gap-4 z-10 md:w-1/2 shrink-0"
         >
           <h1 className="font-display text-6xl md:text-7xl lg:text-8xl tracking-wider text-white ml-[-5px]">
-            PRITAMUNDHE
+            PRITAMuNDHE
           </h1>
           <p className="font-sans text-xs md:text-sm tracking-[0.3em] uppercase text-white/70">
             Pritam Mundhe
