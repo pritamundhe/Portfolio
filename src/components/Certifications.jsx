@@ -2,10 +2,9 @@ import { motion } from "framer-motion";
 import { Award, GraduationCap } from "lucide-react";
 
 const certifications = [
-  "Microsoft Certified: Azure Data Fundamentals (DP-900)",
-  "Google Cloud: Machine Learning Operations (MLOps)",
-  "Google Cloud: Deploy and Manage Generative AI Models",
-  "Google Cloud: Agentic AI with Agent Development Kit (ADK)",
+  "Microsoft Certified: Azure Data Fundamentals (DP-900) — Score: 925/1000",
+  "Agent Development and Deployment using LangChain & LangSmith",
+  "Preparing: GitHub Certified — Agentic AI Developer",
 ];
 
 const education = [
@@ -13,7 +12,7 @@ const education = [
     degree: "B.Tech in Computer Engineering",
     institute: "AISSMS Institute of Information Technology, Pune",
     year: "2023 - 2026",
-    status: "Pursuing"
+    status: "Completed"
   },
   {
     degree: "Diploma in Computer Engineering",
@@ -30,8 +29,8 @@ const Certifications = () => {
         
         {/* Education Section */}
         <div>
-          <h2 className="text-sm tracking-[0.3em] text-gray-500 uppercase mb-12 flex items-center gap-3">
-            <GraduationCap size={18} /> Education
+          <h2 className="text-xs tracking-[0.4em] text-white font-bold uppercase mb-12 font-mono flex items-center gap-3">
+            <GraduationCap size={18} className="text-white" /> 04. Education
           </h2>
           <div className="space-y-8">
             {education.map((edu, index) => (
@@ -41,14 +40,16 @@ const Certifications = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative pl-6 border-l border-[#27272a]"
+                className="relative pl-6 border-l border-white/20"
               >
-                <div className="absolute w-2 h-2 bg-white rounded-full -left-[4.5px] top-2"></div>
-                <h3 className="text-lg font-medium text-white">{edu.degree}</h3>
-                <p className="text-gray-400 text-sm mt-1">{edu.institute}</p>
-                <div className="flex items-center gap-4 mt-3">
-                  <span className="text-xs font-mono text-gray-500">{edu.year}</span>
-                  <span className={`text-xs px-2 py-1 rounded-full border ${edu.status === 'Pursuing' ? 'border-gray-500 text-gray-300' : 'border-[#27272a] text-gray-500'}`}>
+                {/* Square bullet */}
+                <div className="absolute w-2.5 h-2.5 bg-white rounded-none -left-[5.5px] top-2"></div>
+                
+                <h3 className="text-lg font-bold text-white">{edu.degree}</h3>
+                <p className="text-white/70 text-sm font-medium mt-1">{edu.institute}</p>
+                <div className="flex items-center gap-4 mt-4">
+                  <span className="text-xs font-mono text-white/50 font-bold tracking-widest">{edu.year}</span>
+                  <span className={`text-xs px-2 py-1 rounded-none border font-bold uppercase tracking-wider ${edu.status === 'Pursuing' ? 'border-white/30 text-white' : 'border-white/10 text-white/50'}`}>
                     {edu.status}
                   </span>
                 </div>
@@ -59,8 +60,8 @@ const Certifications = () => {
 
         {/* Certifications Section */}
         <div>
-          <h2 className="text-sm tracking-[0.3em] text-gray-500 uppercase mb-12 flex items-center gap-3">
-            <Award size={18} /> Certifications
+          <h2 className="text-xs tracking-[0.4em] text-white font-bold uppercase mb-12 font-mono flex items-center gap-3">
+            <Award size={18} className="text-white" /> 05. Certifications
           </h2>
           <div className="space-y-4">
             {certifications.map((cert, index) => (
@@ -70,9 +71,9 @@ const Certifications = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="p-4 border border-[#27272a] rounded-lg bg-[#0a0a0a] hover:bg-[#121212] transition-colors"
+                className="p-5 border border-white/20 rounded-none bg-black hover:bg-white/5 hover:border-white/50 transition-all duration-300 group cursor-default"
               >
-                <p className="text-sm text-gray-300 font-medium">{cert}</p>
+                <p className="text-sm text-white/80 group-hover:text-white font-bold leading-relaxed">{cert}</p>
               </motion.div>
             ))}
           </div>

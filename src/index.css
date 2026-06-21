@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Cinzel Decorative", serif;
-  --font-sans: "Inter", sans-serif;
+  --font-display: "Quicksand", sans-serif;
+  --font-sans: "Quicksand", sans-serif;
+  --font-mono: "Quicksand", sans-serif;
   
   --color-primary: #ffffff;
   --color-secondary: #a1a1aa;
@@ -11,12 +12,14 @@
   --color-border: #27272a;
 }
 
-body {
+html, body {
   background-color: var(--color-bg);
   color: var(--color-primary);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 * {

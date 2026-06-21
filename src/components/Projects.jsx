@@ -46,7 +46,7 @@ const Projects = () => {
   return (
     <section id="projects" className="py-24 px-6 bg-[#050505] text-white">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-sm tracking-[0.3em] text-gray-500 uppercase mb-16">
+        <h2 className="text-xs tracking-[0.4em] text-white font-bold uppercase mb-16 font-mono">
           03. Featured Projects
         </h2>
         
@@ -64,22 +64,22 @@ const Projects = () => {
                   setIsLoading(true);
                 }
               }}
-              className={`group relative border border-[#27272a] bg-[#0a0a0a] p-8 rounded-2xl transition-all duration-300 ${project.previewUrl ? 'cursor-pointer hover:border-[#3b82f6]' : 'hover:border-white'}`}
+              className={`group relative border border-white/20 bg-black p-8 rounded-none transition-all duration-300 cyber-glitch-hover hover:bg-white/5 ${project.previewUrl ? 'cursor-pointer hover:border-white/50' : 'hover:border-white/50'}`}
             >
               <div className="flex justify-between items-start mb-6">
-                <h3 className="text-xl font-medium text-white group-hover:text-gray-200">
+                <h3 className="text-xl font-bold text-white group-hover:text-white">
                   {project.title}
                 </h3>
-                <a href={project.link} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()} className="text-gray-500 hover:text-white transition-colors">
+                <a href={project.link} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()} className="text-white/50 hover:text-white transition-colors">
                   <GithubIcon size={20} />
                 </a>
               </div>
-              <p className="text-gray-400 text-sm leading-relaxed mb-8">
+              <p className="text-white/70 text-sm font-medium leading-relaxed mb-8">
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-2 mt-auto">
                 {project.tech.map((tech, i) => (
-                  <span key={i} className="text-xs text-gray-500 font-mono">
+                  <span key={i} className="px-2 py-1 border border-white/10 bg-white/5 text-xs text-white font-bold uppercase tracking-wider rounded-none">
                     {tech}
                   </span>
                 ))}
@@ -95,19 +95,19 @@ const Projects = () => {
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="relative w-full max-w-5xl h-full bg-[#0a0a0a] rounded-2xl overflow-hidden shadow-2xl"
+            className="relative w-full max-w-5xl h-full bg-black rounded-none border border-white/20 overflow-hidden shadow-2xl"
           >
             <button 
               onClick={() => setPreviewUrl(null)}
-              className="absolute top-4 right-4 z-20 p-2 bg-black/50 hover:bg-black/80 text-white rounded-full transition-colors backdrop-blur-md"
+              className="absolute top-4 right-4 z-20 p-2 bg-black hover:bg-white text-white hover:text-black border border-white/20 hover:border-white rounded-none transition-colors"
             >
               <X size={24} />
             </button>
 
             {isLoading && (
-              <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#0a0a0a] z-10 text-white">
-                <Loader2 className="w-10 h-10 animate-spin text-[#3b82f6] mb-4" />
-                <p className="text-sm text-gray-400 font-medium tracking-wide">Loading application...</p>
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-black z-10 text-white">
+                <Loader2 className="w-10 h-10 animate-spin text-white mb-4" />
+                <p className="text-sm text-white font-bold tracking-wide">LOADING APPLICATION...</p>
               </div>
             )}
 
