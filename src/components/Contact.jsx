@@ -58,7 +58,6 @@ const Contact = () => {
       
       <div className="mt-24 text-center text-xs text-gray-600 font-mono">
         <p>© {new Date().getFullYear()} Pritam Mundhe. All rights reserved.</p>
-        <p className="mt-2">Designed & Built with minimal aesthetics.</p>
       </div>
     </section>
   );
