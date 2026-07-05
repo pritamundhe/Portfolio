@@ -19,7 +19,7 @@ const skillsData = [
   {
     category: "Machine Learning",
     number: "04",
-    items: ["Regression", "Classification", "Feature Engineering", "Model Evaluation", "Data Preprocessing", "EDA"],
+    items: ["Regression", "Classification", "EDA", "Feature Engineering", "Model Evaluation", "Data Processing"],
   },
   {
     category: "GenAI",
@@ -29,7 +29,7 @@ const skillsData = [
   {
     category: "Tools & Technologies",
     number: "06",
-    items: ["GitHub", "Git", "Docker", "Kaggle", "Google Colab", "Power BI", "Looker Studio"],
+    items: ["Google Colab", "GitHub", "Git", "Kaggle", "Power BI", "Tableau", "Postman API"],
   },
 ];
 
@@ -65,7 +65,7 @@ const SkillCard = ({ skillGroup, index }) => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.3, delay: index * 0.08 + i * 0.05 }}
-            className="px-3 py-1.5 text-xs font-bold border border-white/30 bg-black text-white group-hover:text-black group-hover:border-white group-hover:bg-white transition-all duration-300 rounded-none uppercase tracking-wider"
+            className="flex-grow text-center px-2 py-1.5 text-[11px] sm:text-xs font-bold border border-white/30 bg-black text-white group-hover:text-black group-hover:border-white group-hover:bg-white transition-all duration-300 rounded-none uppercase tracking-wider"
           >
             {item}
           </motion.span>

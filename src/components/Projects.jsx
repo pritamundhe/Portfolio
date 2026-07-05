@@ -10,18 +10,11 @@ const GithubIcon = ({ size = 20 }) => (
 
 const projectsData = [
   {
-    title: "Personal AI Voice Assistant",
-    description: "I have built a personal voice assistant who remembers my data tasks and speaks with me.",
-    tech: ["Flask", "pymongo", "python-dotenv", "elevenlabs", "requests", "gunicorn"],
+    title: "AutoApply: AI-Powered Job Application Assistant GitHub",
+    description: "An intelligent Chrome extension that automatically maps and fills complex job application forms using user profile data. Implemented a conversational chat interface for intuitive data collection and leveraged AI to seamlessly inject values directly into various web forms.",
+    tech: ["Vite", "Python", "FastAPI", "MongoDB", "DeepSeek API"],
     link: "#",
-    previewUrl: "https://voiceassistant-08n5.onrender.com/"
-  },
-  {
-    title: "Vision Access AI (Social Media Accessibility)",
-    description: "Developed an AI-based image captioning system with emotion detection, OCR, and multilingual caption generation for social media accessibility.",
-    tech: ["Python", "Transformers", "BLIP", "Tesseract OCR", "FastAPI"],
-    link: "#",
-    previewUrl: "https://visionacessai.streamlit.app/?embed=true"
+    previewUrl: "autoapply_message"
   },
   {
     title: "WhatsApp Chat Analysis System",
@@ -36,6 +29,13 @@ const projectsData = [
     tech: ["Python", "Spotify API", "Scikit-learn", "FastAPI"],
     link: "#",
     previewUrl: "https://frontend-rose-eta-61.vercel.app/"
+  },
+  {
+    title: "Personal AI Voice Assistant",
+    description: "I have built a personal voice assistant who remembers my data tasks and speaks with me.",
+    tech: ["Flask", "pymongo", "python-dotenv", "elevenlabs", "requests", "gunicorn"],
+    link: "#",
+    previewUrl: "https://voiceassistant-08n5.onrender.com/"
   }
 ];
 
@@ -104,19 +104,29 @@ const Projects = () => {
               <X size={24} />
             </button>
 
-            {isLoading && (
-              <div className="absolute inset-0 flex flex-col items-center justify-center bg-black z-10 text-white">
-                <Loader2 className="w-10 h-10 animate-spin text-white mb-4" />
-                <p className="text-sm text-white font-bold tracking-wide">LOADING APPLICATION...</p>
+            {previewUrl === "autoapply_message" ? (
+              <div className="w-full h-full flex items-center justify-center p-8 bg-black">
+                <p className="text-lg md:text-xl text-white font-mono leading-relaxed max-w-3xl text-center">
+                  yet to deploy and planing to create simulation video just remember it do automatic form filling save time
+                </p>
               </div>
+            ) : (
+              <>
+                {isLoading && (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-black z-10 text-white">
+                    <Loader2 className="w-10 h-10 animate-spin text-white mb-4" />
+                    <p className="text-sm text-white font-bold tracking-wide">LOADING APPLICATION...</p>
+                  </div>
+                )}
+    
+                <iframe 
+                  src={previewUrl} 
+                  className={`w-full h-full border-0 relative z-0 transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+                  title="Project Preview"
+                  onLoad={() => setIsLoading(false)}
+                />
+              </>
             )}
-
-            <iframe 
-              src={previewUrl} 
-              className={`w-full h-full border-0 relative z-0 transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
-              title="Project Preview"
-              onLoad={() => setIsLoading(false)}
-            />
           </motion.div>
         </div>
       )}

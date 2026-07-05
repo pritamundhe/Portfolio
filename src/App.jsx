@@ -5,6 +5,7 @@ import About from "./components/About";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
 import Certifications from "./components/Certifications";
+import RedBullF1 from "./components/RedBullF1";
 import Contact from "./components/Contact";
 import SoundCloudPlayer from "./components/SoundCloudPlayer";
 import IntroScreen from "./components/IntroScreen";
@@ -26,6 +27,7 @@ function App() {
         <Skills />
         <Projects />
         <Certifications />
+        <RedBullF1 />
       </main>
       <Contact />
       <SoundCloudPlayer />

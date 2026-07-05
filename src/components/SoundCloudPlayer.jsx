@@ -1,9 +1,34 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Music2, ChevronUp, ChevronDown } from "lucide-react";
 
 const SoundCloudPlayer = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const iframeRef = useRef(null);
+
+  useEffect(() => {
+    if (!window.SC || !iframeRef.current) return;
+    
+    const widget = window.SC.Widget(iframeRef.current);
+    
+    const handleInteraction = () => {
+      widget.play();
+      ['click', 'scroll', 'keydown', 'touchstart'].forEach(evt => {
+        window.removeEventListener(evt, handleInteraction);
+      });
+    };
+
+    // Listen for any user interaction to start playing
+    ['click', 'scroll', 'keydown', 'touchstart'].forEach(evt => {
+      window.addEventListener(evt, handleInteraction, { once: true });
+    });
+
+    return () => {
+      ['click', 'scroll', 'keydown', 'touchstart'].forEach(evt => {
+        window.removeEventListener(evt, handleInteraction);
+      });
+    };
+  }, []);
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
@@ -19,6 +44,7 @@ const SoundCloudPlayer = () => {
         className="relative bg-black rounded-none shadow-2xl overflow-hidden border border-white/20 w-[320px] origin-bottom"
       >
         <iframe
+          ref={iframeRef}
           width="100%"
           height="130"
           scrolling="no"
