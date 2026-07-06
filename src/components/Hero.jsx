@@ -36,13 +36,13 @@ const Hero = () => {
               </div>
               
               <TypewriterText 
-                text="Motivated Computer Engineering student with a strong interest in Machine Learning, Data Science, and Data Structures and Algorithms." 
+                text="BTech in Computer Engineering student, TCS NQT Prime and GATE qualified, with strong interest in Machine Learning, Generative AI, Agentic AI development, and Data Structures Algorithms." 
                 delay={1.5} 
                 speed={30} 
                 className="mb-4 text-white font-bold"
               />
               <TypewriterText 
-                text="Skilled in Python, C++, and SQL with hands-on experience in building Machine Learning and data analytics projects. Strong problem-solving abilities and understanding of software development." 
+                text="Skilled in Python, C++, and SQL with hands-on in Machine Learning and data analytics projects. Strong problem-solving abilities and understanding of software development." 
                 delay={4} 
                 speed={30} 
                 className="text-white/80 font-medium"
