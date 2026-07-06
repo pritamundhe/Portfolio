@@ -49,7 +49,7 @@ const Contact = () => {
             <a href="https://linkedin.com/in/pritamundhe" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-white transition-transform hover:scale-110">
               <LinkedinIcon size={24} />
             </a>
-            <a href="https://mysite.com" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-white transition-transform hover:scale-110">
+            <a href="https://pritamundhe.github.io/Portfolio/" target="_blank" rel="noreferrer" className="text-gray-500 hover:text-white transition-transform hover:scale-110">
               <Globe size={24} />
             </a>
           </div>

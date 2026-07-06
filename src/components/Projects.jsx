@@ -10,7 +10,7 @@ const GithubIcon = ({ size = 20 }) => (
 
 const projectsData = [
   {
-    title: "AutoApply: AI-Powered Job Application Assistant GitHub",
+    title: "AutoApply: AI-Powered Job Application Assistant",
     description: "An intelligent Chrome extension that automatically maps and fills complex job application forms using user profile data. Implemented a conversational chat interface for intuitive data collection and leveraged AI to seamlessly inject values directly into various web forms.",
     tech: ["Vite", "Python", "FastAPI", "MongoDB", "DeepSeek API"],
     link: "#",

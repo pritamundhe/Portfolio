@@ -61,13 +61,14 @@ const About = () => {
 
             <div className="space-y-6 text-gray-400 text-lg leading-relaxed font-light">
               <p>
-                I am a motivated student with a strong passion for{" "}
+                BTech in Computer Engineering student, TCS NQT Prime and GATE qualified, with strong interest in{" "}
                 <strong className="text-gray-200 font-medium">Machine Learning</strong>,{" "}
-                <strong className="text-gray-200 font-medium">Data Science</strong>, and designing robust{" "}
-                <strong className="text-gray-200 font-medium">Data Structures and Algorithms</strong>.
+                <strong className="text-gray-200 font-medium">Generative AI</strong>,{" "}
+                <strong className="text-gray-200 font-medium">Agentic AI development</strong>, and{" "}
+                <strong className="text-gray-200 font-medium">Data Structures Algorithms</strong>.
               </p>
               <p>
-                Equipped with hands-on experience in building predictive models and data analytics projects, I leverage tools like Python, C++, and SQL to solve complex problems and build impactful software solutions.
+                Skilled in Python, C++, and SQL with hands-on in Machine Learning and data analytics projects. Strong problem-solving abilities and understanding of software development.
               </p>
             </div>
           </motion.div>
